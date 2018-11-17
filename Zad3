@@ -1,0 +1,40 @@
+// ConsoleApplication48.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+#include <string>
+
+/*
+Napiši klasu MotornoVozilo koja ima podatkovne članove za boju, zapremninu
+spremnika goriva, trenutnu razinu goriva i prosječnu potrošnju, defaultni i
+parametarski konstruktor, metodu Oboji koja boja vozilo, Natoci koja puni
+gorivo i čistu virtualnu metodu Vozi, koja kao parametar ima broj kilometara
+koliko se vozi. Napiši klasu Automobil koja nasljeđuje klasu MotornoVozilo, a
+ima podatkovne članove za model i max. brzinu te defaultni i parametarski
+konstruktor. Prepiši metodu vozi, tako da umanjuje količinu goriva prema
+broju kilometara koje se vozi i prosječnoj potrošnji. Napraviti garažu (1D polje
+MotornihVozila) i provozati svako vozilo iz garaže.
+*/
+
+class MotornoVozilo {
+private:
+	std::string boja;
+	float zapremnina, trenutna_razina, prosjecna_potrosnja;
+
+public:
+	MotornoVozilo();
+	MotornoVozilo(float z, float t, float p);
+	void Oboji(std::string boja);
+
+};
+
+MotornoVozilo::MotornoVozilo() : zapremnina(0), trenutna_razina(0), prosjecna_potrosnja(0){};
+MotornoVozilo::MotornoVozilo(float z, float t, float p) :zapremnina(z), trenutna_razina(t), prosjecna_potrosnja(p) {};
+
+
+int _tmain(int argc, _TCHAR* argv[])
+{
+	return 0;
+}
+
