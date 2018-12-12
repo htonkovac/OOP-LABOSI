@@ -1,0 +1,74 @@
+#include <iostream>
+#include <stdexcept>
+#include <string>
+#define MAX_SIZE 5
+using namespace std;
+
+class StogExc : public runtime_error
+{
+};
+class Stog
+{
+  private:
+    int A[MAX_SIZE];
+    int top;
+
+  public:
+    Stog();
+    void push(int x);
+    int pop();
+    void print();
+    bool isEmpty();
+};
+Stog::Stog()
+{
+    top = -1;
+}
+void Stog::push(int x)
+{
+    if (top == MAX_SIZE - 1)
+    {
+        
+        throw StogExc("Stack Overflow");
+        return;
+    }
+    else
+    {
+        top++;
+        A[top] = x;
+    }
+}
+int Stog::pop()
+{
+    if (top != -1)
+    {
+        top--;
+        return A[top];
+    }
+    else
+    {
+        throw StogExc("Stack Underflow");
+        return;
+    }
+}
+bool Stog::isEmpty()
+{
+    if (top == -1)
+    {
+        return true;
+    }
+    return false;
+}
+
+void Stog::print()
+{
+    for (int i = 0; i <= top; i++)
+    {
+        cout << "top:  " << A[i] << endl;
+    }
+}
+
+void main()
+{
+    Stog stog;
+}
